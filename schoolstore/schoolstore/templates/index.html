@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadescription %}
+    {% if department %}
+          {{department.name|truncatewords:155}}
+    {% else %}
+          Welcome to the world of Knowledge
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if department %}
+          {{department.name}} Victory School
+    {% else %}
+          Victory School
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if department %}
+         <div>
+           <div class="row my_row_class">
+               <div class="mx_auto">
+             <p><h4>Knowledge meets Victory</h4></p>
+           </div>
+               </div>
+         </div>
+         {% endif %}
+<div class="mx_auto">
+  {% if department %}
+    <div>
+      <h1 class="text-center my_title">{{department.name}}</h1>
+    </div>
+    {% else %}
+    {% endif %}
+    <div>
+      <img class="my_image my_image_padding" src="{% static 'img/school banner.jpg' %}" alt= "DEPARTMENTS"  width="1200px;" height="500px">
+    </div>
+{% endblock %}
+</div>

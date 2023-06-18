@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+ <div class="container">
+    <div class=" p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h4 class="display-5 fw-bold">Success</h4>
+            <p class="col-md-8 fs-4">Your order is confirmed.</p>
+            <p>Thank you for contacting us</p>
+            <a href="{% url 'schoolapp:index' %}">
+                <button class="btn btn-secondary btn-lg" type="button">Return to home</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

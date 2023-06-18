@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid" style="text-align: left;">
+
+    <form action="login_request" method="post">
+    {% csrf_token %}
+ Name:<input type="text" name="name" placeholder="Enter your name"><br><br>
+ Age:<input type="text" name="age" placeholder="Enter your age"><br><br>
+ DOB:<input type="text" name="DOB" placeholder="Enter your DOB"><br><br>
+ Gender:<input type="radio" name="gender" value="male"> Male
+       <input type="radio" name="gender" value="female"> Female<br><br>
+ Phone Number:<input type="text" name="phone-number" placeholder="Enter your Phone number"><br><br>
+ Mail ID:<input type="email" name="email" placeholder="Enter your email"><br><br>
+ Address:<input type="text" name="address" placeholder="Enter your address"><br><br>
+
+ <label for="Department">Department:</label>
+ <select name="Department" id="Department">
+  <option value="Science">Science</option>
+  <option value="Commerce">Commerce</option>
+  <option value="Arts">Arts</option>
+</select><br><br>
+ <label for="Course">Courses:</label>
+
+<select name="Course" id="Course">
+  <option value="Bcom">Bcom</option>
+  <option value="BA Literature">BA Literature</option>
+  <option value="BA English">BA English</option>
+  <option value="Bsc Mathematics">Bsc Mathematics</option>
+  <option value="Bsc Physics">Bsc Physics</option>
+  <option value="Bsc Chemistry">Bsc Chemistry</option>
+  <option value="Bsc Biology">Bsc Biology</option>
+
+</select><br><br>
+  <label for="Purpose">Purpose:</label>
+
+<select name="Purpose" id="Purpose">
+  <option value="For Enquiry">For Enquiry</option>
+  <option value="Place Order">Place Order</option>
+  <option value="Return">Return</option>
+</select><br><br>
+  Materials Provide: <input type="checkbox" name="pen" value="pen"> Pen
+                   <input type="checkbox" name="pencil" value="pencil"> Pencil
+                   <input type="checkbox" name="paper" value="paper"> Exam Paper
+                    <input type="checkbox" name="eraser" value="pencil"> Eraser
+                    <input type="checkbox" name="Notebook" value="pencil"> Notebook<br><br>
+                    <button><a class="btn btn-success" href="{% url 'schoolapp:message' %}"> Submit </a></button>
+                    <button><a class="btn btn-danger" href="{% url 'schoolapp:index' %}"> Logout </a></button>
+
+    </form>
+
+{% for msg in messages %}
+<h2>{{ msg }}</h2>
+{% endfor %}
+
+
+ </div>
+{% endblock %}
